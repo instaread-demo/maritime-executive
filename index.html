@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1213,initial-scale=1">
+<title>The Maritime Executive Audio Player Demo</title>
+<style>
+:root{--logo-blue:#005198;--yellow:#ffd91a;--page-w:1213px;--shot-h:2048px;--insert-y:770px;--insert-h:152px;--article-x:344px;--article-w:516px;--right-x:860px}*{box-sizing:border-box}html,body{margin:0;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif}body{min-width:1213px;padding-top:50px}.demo-banner{position:fixed;top:0;left:0;right:0;z-index:50;min-height:50px;display:flex;align-items:center;justify-content:center;padding:10px 18px;background:var(--yellow);border-bottom:3px solid #111;color:#111;font-size:15px;font-weight:900;text-align:center}.demo-banner strong{color:#b30000;text-transform:uppercase}.demo-corner{position:fixed;left:16px;bottom:16px;z-index:50;width:252px;padding:10px 12px;background:var(--yellow);border:2px solid #111;box-shadow:0 5px 14px rgba(0,0,0,.24);font-size:12px;font-weight:900;line-height:1.25}.stage{position:relative;width:1213px;margin:0 auto 70px;background:#fff}.shot{background-image:url('maritime-reference-page.png');background-repeat:no-repeat;background-size:1213px 2048px}.slice-top{width:1213px;height:770px;background-position:0 0}.insert-row{position:relative;width:1213px;height:152px;background-position:0 -770px}.article-mask{position:absolute;left:344px;top:0;width:516px;height:152px;background:#fff}.bottom-stage{position:relative;width:1213px;height:1278px;background:#fff;overflow:hidden}.bottom-left{position:absolute;left:0;top:0;width:344px;height:1126px;background-position:0 -922px}.bottom-article{position:absolute;left:344px;top:0;width:516px;height:1278px;background-position:-344px -770px}.bottom-right{position:absolute;left:860px;top:0;width:353px;height:1126px;background-position:-860px -922px}.audio-player{position:absolute;left:344px;top:0;width:516px;height:152px;display:grid;grid-template-columns:302px 1px 213px;background:#fff;border-bottom:1px solid #d5d5d5;overflow:hidden}.audio-left{position:relative;padding:16px 10px 0 18px}.listen-label{margin-left:6px;color:#111;font-size:16px;line-height:1;white-space:nowrap}.player-line{display:flex;align-items:center;gap:8px;margin-top:25px}.play-button{width:50px;height:50px;flex:0 0 50px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--logo-blue);cursor:pointer}.play-button:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}.tri{width:0;height:0;margin-left:4px;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:15px solid #fff}.pause{display:none;width:17px;height:19px;border-left:6px solid #fff;border-right:6px solid #fff}.play-button.is-playing .tri{display:none}.play-button.is-playing .pause{display:block}.wave-wrap{position:relative;width:210px;height:74px;padding-top:8px}.wave{height:48px;display:flex;align-items:center;gap:2px;overflow:hidden}.wave span{width:3px;height:var(--h);min-height:10px;border-radius:4px;background:#7daaef;transform-origin:center}.audio-player.is-playing .wave span{animation:pulse .78s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-42ms)}@keyframes pulse{from{transform:scaleY(.62);opacity:.72}to{transform:scaleY(1.18);opacity:1}}.instaread{position:absolute;right:10px;bottom:0;display:flex;align-items:center;gap:4px;color:#c9c9c9;font-size:10px;font-weight:700;line-height:1;opacity:.8}.instaread img{width:10px;height:14px;object-fit:contain;opacity:.32;filter:grayscale(1)}.divider{background:#ededed}.sponsor{padding:13px 8px 0 9px}.sponsor-label{height:14px;color:#111;font-size:14px;line-height:1}.netflix-image{display:block;width:196px;height:60px;margin-top:9px;object-fit:cover;object-position:center;border:1px solid #111;background:#000}.ad-footer{height:49px;display:flex;align-items:center;justify-content:center;gap:16px}.n-word{color:#e50914;font:900 18px Arial Black,Impact,sans-serif;letter-spacing:-.5px}.watch{min-width:74px;height:19px;padding:0 12px;border:0;border-radius:12px;background:#000;color:#fff;font-size:8px;font-weight:800;text-transform:uppercase}.sr-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}@media(max-width:1212px){body{overflow-x:auto}.stage{margin-left:0;margin-right:0}}
+</style>
+</head>
+<body>
+<div class="demo-banner"><strong>Demo only:</strong>&nbsp;This cloned page is for presentation purposes only and is not affiliated with The Maritime Executive.</div>
+<div class="demo-corner">DEMO ONLY - static clone for review. Not a live news page.</div>
+<main class="stage" aria-label="Maritime Executive demo page">
+  <div class="shot slice-top" aria-hidden="true"></div>
+  <section class="shot insert-row" aria-label="Article audio player">
+    <div class="article-mask" aria-hidden="true"></div>
+    <div class="audio-player" id="audioPlayer">
+      <div class="audio-left">
+        <div class="listen-label">Listen to audio version of this article</div>
+        <div class="player-line">
+          <button class="play-button" id="playButton" type="button" aria-label="Play article audio"><span class="tri" aria-hidden="true"></span><span class="pause" aria-hidden="true"></span></button>
+          <div class="wave-wrap" aria-hidden="true"><div class="wave" id="waveBars"></div><div class="instaread"><img src="instaread-logo.webp" alt=""><span>Instaread</span></div></div>
+        </div>
+        <div class="sr-status" id="status" aria-live="polite">Audio ready</div>
+        <audio id="articleAudio" preload="metadata" src="article-audio-sample.mp3"></audio>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="sponsor">
+        <div class="sponsor-label">Sponsored by</div>
+        <img class="netflix-image" src="netflix-ads-image.webp" alt="Netflix sponsored ad">
+        <div class="ad-footer"><div class="n-word">NETFLIX</div><button class="watch" type="button">Watch Now</button></div>
+      </div>
+    </div>
+  </section>
+  <section class="bottom-stage" aria-hidden="true">
+    <div class="shot bottom-left"></div>
+    <div class="shot bottom-article"></div>
+    <div class="shot bottom-right"></div>
+  </section>
+</main>
+<script>
+var heights=[18,28,22,38,18,31,24,44,16,35,25,19,30,23,48,32,20,37,26,16,31,21,29,18,24,34,22,42,19,28,33,17,25,44,20,31,48,28,36,18,24,39];
+document.getElementById('waveBars').innerHTML=heights.map(function(h,i){return '<span style="--h:'+h+'px;--i:'+i+'"></span>';}).join('');
+var player=document.getElementById('audioPlayer');
+var button=document.getElementById('playButton');
+var audio=document.getElementById('articleAudio');
+var status=document.getElementById('status');
+function setPlaying(on){player.classList.toggle('is-playing',on);button.classList.toggle('is-playing',on);button.setAttribute('aria-label',on?'Pause article audio':'Play article audio');status.textContent=on?'Audio playing':'Audio paused';}
+button.addEventListener('click',function(){if(audio.paused){audio.play().then(function(){setPlaying(true);}).catch(function(){status.textContent='Audio could not be played.';});}else{audio.pause();setPlaying(false);}});
+audio.addEventListener('play',function(){setPlaying(true);});
+audio.addEventListener('pause',function(){if(!audio.ended){setPlaying(false);}});
+audio.addEventListener('ended',function(){setPlaying(false);audio.currentTime=0;status.textContent='Audio finished';});
+</script>
+</body>
+</html>
